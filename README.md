@@ -1,3 +1,6 @@
+#kafka-enterprise-orders
+
+```text
 kafka-enterprise-orders/
 ├── docker-compose.yml
 ├── .env
