@@ -36,7 +36,7 @@ jobs:
           context: ./producer
           push: true
           tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ github.repository }}/order-producer:latest
+            ${{ env.GHCR_REGISTRY }}/${{ github.repository_owner | lower }}/kafka-enterprise-orders/order-producer:latest
 
       - name: Build & push fraud-service image
         uses: docker/build-push-action@v6
@@ -44,7 +44,7 @@ jobs:
           context: ./consumers/fraud-service
           push: true
           tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ github.repository }}/fraud-service:latest
+            ${{ env.GHCR_REGISTRY }}/${{ github.repository_owner | lower }}/kafka-enterprise-orders/fraud-service:latest
 
       - name: Build & push payment-service image
         uses: docker/build-push-action@v6
@@ -52,7 +52,7 @@ jobs:
           context: ./consumers/payment-service
           push: true
           tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ github.repository }}/payment-service:latest
+            ${{ env.GHCR_REGISTRY }}/${{ github.repository_owner | lower }}/kafka-enterprise-orders/payment-service:latest
 
       - name: Build & push analytics-service image
         uses: docker/build-push-action@v6
@@ -60,7 +60,7 @@ jobs:
           context: ./consumers/analytics-service
           push: true
           tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ github.repository }}/analytics-service:latest
+            ${{ env.GHCR_REGISTRY }}/${{ github.repository_owner | lower }}/kafka-enterprise-orders/analytics-service:latest
 
       - name: Export image tags
         id: images
