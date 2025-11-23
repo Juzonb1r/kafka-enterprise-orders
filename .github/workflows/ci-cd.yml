@@ -109,6 +109,7 @@ jobs:
           TF_VAR_container_image_analytics: ${{ needs.build-and-push.outputs.analytics }}
           TF_VAR_confluent_api_key: ${{ secrets.CONFLUENT_API_KEY }}
           TF_VAR_confluent_api_secret: ${{ secrets.CONFLUENT_API_SECRET }}
+          TF_VAR_confluent_bootstrap_servers: ${{ secrets.CONFLUENT_BOOTSTRAP_SERVERS }}
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
@@ -121,4 +122,5 @@ jobs:
           TF_VAR_container_image_analytics: ${{ needs.build-and-push.outputs.analytics }}
           TF_VAR_confluent_api_key: ${{ secrets.CONFLUENT_API_KEY }}
           TF_VAR_confluent_api_secret: ${{ secrets.CONFLUENT_API_SECRET }}
+          TF_VAR_confluent_bootstrap_servers: ${{ secrets.CONFLUENT_BOOTSTRAP_SERVERS }}
         run: terraform apply -auto-approve tfplan
