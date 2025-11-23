@@ -107,6 +107,7 @@ jobs:
           TF_VAR_container_image_fraud: ${{ needs.build-and-push.outputs.fraud }}
           TF_VAR_container_image_payment: ${{ needs.build-and-push.outputs.payment }}
           TF_VAR_container_image_analytics: ${{ needs.build-and-push.outputs.analytics }}
+          TF_VAR_confluent_api_key: ${{ secrets.CONFLUENT_API_KEY }}
         run: terraform plan -out=tfplan
 
       - name: Terraform Apply
@@ -117,4 +118,5 @@ jobs:
           TF_VAR_container_image_fraud: ${{ needs.build-and-push.outputs.fraud }}
           TF_VAR_container_image_payment: ${{ needs.build-and-push.outputs.payment }}
           TF_VAR_container_image_analytics: ${{ needs.build-and-push.outputs.analytics }}
+          TF_VAR_confluent_api_key: ${{ secrets.CONFLUENT_API_KEY }}
         run: terraform apply -auto-approve tfplan
