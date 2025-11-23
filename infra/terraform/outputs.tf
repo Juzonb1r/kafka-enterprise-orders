@@ -14,9 +14,3 @@ data "aws_secretsmanager_secret_version" "rds_password_version" {
   secret_id = data.aws_secretsmanager_secret.rds_password_secret.id
 }
 
-resource "aws_db_instance" "orders_db" {
-  # ...
-  username = var.rds_username
-  password = jsondecode(data.aws_secretsmanager_secret_version.rds_password_version.secret_string)["password"]
-  # ...
-}
