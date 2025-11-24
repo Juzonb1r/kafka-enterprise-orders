@@ -38,7 +38,7 @@ resource "aws_db_instance" "orders_db" {
   instance_class          = "db.t3.micro"
   allocated_storage       = 20
   username                = var.rds_username
-  password                = "AidaAil@KafkaOrders2025!"
+  password                = "KafkaRds#123"
   db_subnet_group_name    = aws_db_subnet_group.orders.name
   vpc_security_group_ids  = [aws_security_group.rds.id]
   publicly_accessible     = false
