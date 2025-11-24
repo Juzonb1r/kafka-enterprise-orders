@@ -48,64 +48,37 @@ jobs:
         with:
           context: ./producer
           push: true
-
-          tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/order-producer:latest
-
           tags: ${{ env.GHCR_REGISTRY }}/${{ steps.repo.outputs.repo_lower }}/order-producer:latest
- a2f274546a28ab765ea876a872650d3476c7a721
 
       - name: Build & push fraud-service image
         uses: docker/build-push-action@v6
         with:
           context: ./consumers/fraud-service
           push: true
- 
-          tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/fraud-service:latest
-
           tags: ${{ env.GHCR_REGISTRY }}/${{ steps.repo.outputs.repo_lower }}/fraud-service:latest
- a2f274546a28ab765ea876a872650d3476c7a721
 
       - name: Build & push payment-service image
         uses: docker/build-push-action@v6
         with:
           context: ./consumers/payment-service
           push: true
-
-          tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/payment-service:latest
-
           tags: ${{ env.GHCR_REGISTRY }}/${{ steps.repo.outputs.repo_lower }}/payment-service:latest
- a2f274546a28ab765ea876a872650d3476c7a721
 
       - name: Build & push analytics-service image
         uses: docker/build-push-action@v6
         with:
           context: ./consumers/analytics-service
           push: true
-
-          tags: |
-            ${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/analytics-service:latest
-
           tags: ${{ env.GHCR_REGISTRY }}/${{ steps.repo.outputs.repo_lower }}/analytics-service:latest
- a2f274546a28ab765ea876a872650d3476c7a721
 
       - name: Export image tags
         id: images
         run: |
-
-          echo "producer=${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/order-producer:latest" >> $GITHUB_OUTPUT
-          echo "fraud=${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/fraud-service:latest" >> $GITHUB_OUTPUT
-          echo "payment=${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/payment-service:latest" >> $GITHUB_OUTPUT
-          echo "analytics=${{ env.GHCR_REGISTRY }}/${{ toLower(github.repository) }}/analytics-service:latest" >> $GITHUB_OUTPUT
-
           REPO="${{ steps.repo.outputs.repo_lower }}"
           echo "producer=ghcr.io/$REPO/order-producer:latest" >> $GITHUB_OUTPUT
           echo "fraud=ghcr.io/$REPO/fraud-service:latest" >> $GITHUB_OUTPUT
           echo "payment=ghcr.io/$REPO/payment-service:latest" >> $GITHUB_OUTPUT
           echo "analytics=ghcr.io/$REPO/analytics-service:latest" >> $GITHUB_OUTPUT
- a2f274546a28ab765ea876a872650d3476c7a721
 
   terraform:
     needs: build-and-push
