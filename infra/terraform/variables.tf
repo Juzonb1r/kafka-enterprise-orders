@@ -53,8 +53,3 @@ variable "rds_username" {
   default     = "orders_user"
 }
 
-variable "rds_password" {
-  description = "RDS master password"
-  type        = string
-  sensitive   = true
-}
