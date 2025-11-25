@@ -53,3 +53,9 @@ variable "rds_username" {
   default     = "orders_user"
 }
 
+variable "rds_password" {
+  description = "Master password for the RDS database"
+  type        = string
+  sensitive   = true
+}
+
