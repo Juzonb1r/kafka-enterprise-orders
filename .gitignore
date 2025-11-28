@@ -1,3 +1,4 @@
 infra/terraform/.terraform/
-*.tfstate
-*.tfstate.*
+infra/terraform/terraform.tfstate
+infra/terraform/terraform.tfstate.backup
+
