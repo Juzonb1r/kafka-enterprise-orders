@@ -31,3 +31,11 @@ spec:
           image: {{ .Values.frontendImage }}
           ports:
             - containerPort: 80
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8000
+readinessProbe:
+  httpGet:
+    path: /healthz
+    port: 8000
