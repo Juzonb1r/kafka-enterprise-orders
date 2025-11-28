@@ -36,3 +36,7 @@ def get_analytics():
 
     except Exception as e:
         return {"error": str(e)}
+
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok"}
