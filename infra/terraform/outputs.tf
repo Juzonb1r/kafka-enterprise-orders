@@ -14,3 +14,10 @@ data "aws_secretsmanager_secret_version" "rds_password_version" {
   secret_id = data.aws_secretsmanager_secret.rds_password_secret.id
 }
 
+output "prometheus_workspace" {
+  value = aws_prometheus_workspace.main.arn
+}
+
+output "grafana_url" {
+  value = aws_grafana_workspace.main.endpoint
+}
