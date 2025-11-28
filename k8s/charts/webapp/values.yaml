@@ -1,0 +1,10 @@
+frontendImage: "ghcr.io/juzonb1r/kafka-enterprise-orders/web-frontend:latest"
+backendImage: "ghcr.io/juzonb1r/kafka-enterprise-orders/web-backend:latest"
+
+domain: "jimkr.com"
+
+couchbase:
+  host: "couchbase.your-domain"
+  bucket: "order_analytics"
+  username: "Administrator"
+  password: "password"
