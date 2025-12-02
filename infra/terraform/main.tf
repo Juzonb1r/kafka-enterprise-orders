@@ -7,18 +7,15 @@ terraform {
       version = "~> 5.0"
     }
   }
-}
 
-provider "aws" {
-  region = var.aws_region
-}
-
-<<<<<<< HEAD
   backend "s3" {
     bucket = "your-bucket"
     key    = "terraform/state.tfstate"
     region = "us-east-2"
   }
 }
-=======
->>>>>>> 1b00fe8 (Fix backend configuration in Terraform)
+
+provider "aws" {
+  region = var.aws_region
+}
+
