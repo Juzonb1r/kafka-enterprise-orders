@@ -1,0 +1,15 @@
+{
+  "name": "test-mirror-source",
+  "config": {
+    "connector.class": "org.apache.kafka.connect.mirror.MirrorSourceConnector",
+    "source.cluster.alias": "source",
+    "target.cluster.alias": "target",
+    "source.cluster.bootstrap.servers": "kafka:9092",
+    "target.cluster.bootstrap.servers": "kafka:9092",  // Для теста — тот же кластер. Если другой — укажи его адрес
+    "topics": "test-orders",  // Твой топик
+    "replication.factor": "1",
+    "offset-syncs.topic.replication.factor": "1",
+    "sync.topic.acls.enabled": "false",
+    "tasks.max": "1"  // Для простоты, один таск
+  }
+}
