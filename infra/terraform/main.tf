@@ -7,17 +7,18 @@ terraform {
       version = "~> 5.0"
     }
   }
-
-  # For now: local state. Later you can move to S3 + DynamoDB.
 }
 
 provider "aws" {
   region = var.aws_region
 }
 
+<<<<<<< HEAD
   backend "s3" {
     bucket = "your-bucket"
     key    = "terraform/state.tfstate"
     region = "us-east-2"
   }
 }
+=======
+>>>>>>> 1b00fe8 (Fix backend configuration in Terraform)
